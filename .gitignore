@@ -1,0 +1,8 @@
+# binary
+sst
+
+# object files
+*.o
+
+# MacOS Stuff
+.DS_Store
