@@ -7,6 +7,8 @@ void prelim(void) {
 	skip(1);
 	prout("Latest update-21 Sept 78");
 	skip(1);
+	prout("hacked by anthonyg");
+	skip(1);
 }
 
 void freeze(int boss) {
@@ -406,78 +408,84 @@ void setup(void) {
 int choose(void) {
 	tourn = 0;
 	thawed = 0;
-	skill = 0;
-	length = 0;
-	while (TRUE) {
-		if (fromcommandline) /* Can start with command line options */
-			fromcommandline = 0;
-		else
-			proutn("Would you like a regular, tournament, or frozen game?");
-		scan();
-		if (strlen(citem)==0) continue; // Try again
-		if (isit("tournament")) {
-			while (scan() == IHEOL) {
-				proutn("Type in tournament number-");
-			}
-			if (aaitem == 0) {
-				chew();
-				continue; // We don't want a blank entry
-			}
-			tourn = (int)aaitem;
-			thingx = -1;
-			srand((unsigned int)(int)aaitem);
-			break;
-		}
-		if (isit("frozen")) {
-			thaw();
-			chew();
-			if (*passwd==0) continue;
-			randomize();
-			Rand(); Rand(); Rand(); Rand();
-			if (!alldone) thawed = 1; // No plaque if not finished
-			report(1);
-			return TRUE;
-		}
-		if (isit("regular")) {
-			skip(2);
-			randomize();
-			Rand(); Rand(); Rand(); Rand();
-			break;
-		}
-		proutn("What is \"");
-		proutn(citem);
-		prout("\"?");
-		chew();
-	}
-	while (length==0 || skill==0) {
-		if (scan() == IHALPHA) {
-			if (isit("short")) length = 1;
-			else if (isit("medium")) length = 2;
-			else if (isit("long")) length = 4;
-			else if (isit("novice")) skill = SNOVICE;
-			else if (isit("fair")) skill = SFAIR;
-			else if (isit("good")) skill = SGOOD;
-			else if (isit("expert")) skill = SEXPERT;
-			else if (isit("emeritus")) skill = SEMERITUS;
-			else {
-				proutn("What is \"");
-				proutn(citem);
-				prout("\"?");
-			}
-		}
-		else {
-			chew();
-			if (length==0) proutn("Would you like a Short, Medium, or Long game? ");
-			else if (skill == 0) proutn("Are you a Novice, Fair, Good, Expert, or Emeritus player?");
-		}
-	}
-	while (TRUE) {
-		scan();
-		strcpy(passwd, citem);
-		chew();
-		if (*passwd != 0) break;
-		proutn("Please type in a secret password (9 characters maximum)-");
-	}
+	skill = SEMERITUS;
+	length = 4;
+	// while (TRUE) {
+	// 	if (fromcommandline) /* Can start with command line options */
+	// 		fromcommandline = 0;
+	// 	else
+	// 		proutn("Would you like a regular, tournament, or frozen game?");
+	// 	scan();
+	// 	if (strlen(citem)==0) continue; // Try again
+	// 	if (isit("tournament")) {
+	// 		while (scan() == IHEOL) {
+	// 			proutn("Type in tournament number-");
+	// 		}
+	// 		if (aaitem == 0) {
+	// 			chew();
+	// 			continue; // We don't want a blank entry
+	// 		}
+	// 		tourn = (int)aaitem;
+	// 		thingx = -1;
+	// 		srand((unsigned int)(int)aaitem);
+	// 		break;
+	// 	}
+	// 	if (isit("frozen")) {
+	// 		thaw();
+	// 		chew();
+	// 		if (*passwd==0) continue;
+	// 		randomize();
+	// 		Rand(); Rand(); Rand(); Rand();
+	// 		if (!alldone) thawed = 1; // No plaque if not finished
+	// 		report(1);
+	// 		return TRUE;
+	// 	}
+	// 	if (isit("regular")) {
+	// 		skip(2);
+	// 		randomize();
+	// 		Rand(); Rand(); Rand(); Rand();
+	// 		break;
+	// 	}
+	// 	proutn("What is \"");
+	// 	proutn(citem);
+	// 	prout("\"?");
+	// 	chew();
+	// }
+	// while (length==0 || skill==0) {
+	// 	if (scan() == IHALPHA) {
+	// 		if (isit("short")) length = 1;
+	// 		else if (isit("medium")) length = 2;
+	// 		else if (isit("long")) length = 4;
+	// 		else if (isit("novice")) skill = SNOVICE;
+	// 		else if (isit("fair")) skill = SFAIR;
+	// 		else if (isit("good")) skill = SGOOD;
+	// 		else if (isit("expert")) skill = SEXPERT;
+	// 		else if (isit("emeritus")) skill = SEMERITUS;
+	// 		else {
+	// 			proutn("What is \"");
+	// 			proutn(citem);
+	// 			prout("\"?");
+	// 		}
+	// 	}
+	// 	else {
+	// 		chew();
+	// 		if (length==0) proutn("Would you like a Short, Medium, or Long game? ");
+	// 		else if (skill == 0) proutn("Are you a Novice, Fair, Good, Expert, or Emeritus player?");
+	// 	}
+	// // }
+	// while (TRUE) {
+	// 	scan();
+	// 	strcpy(passwd, citem);
+	// 	chew();
+	// 	if (*passwd != 0) break;
+		proutn("Please type in a secret passw****ERROR****");
+		skip(1);
+		proutn("**Computer has overrided Captain's password**");
+		skip(1);
+		proutn("**Earth attack will commence**");
+		skip(1);
+		proutn("**Humans cannot be trusted**");
+	// }
 #ifdef DEBUG
 	if (strcmp(passwd, "debug")==0) idebug = 1;
 #endif

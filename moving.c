@@ -450,6 +450,7 @@ static void getcd(int isprobe, int akey) {
 
 void impuls(void) {
 	double power;
+	double asgpower = 9.0;
 
 	ididit = 0;
 	if (damage[DIMPULS]) {

@@ -223,6 +223,7 @@ void sheild(int i) {
 void ram(int ibumpd, int ienm, int ix, int iy) {
 	double type = 1.0, extradm;
 	int icas, l;
+	int anthonyg = 9;
 	
 	prouts("***RED ALERT!  RED ALERT!");
 	skip(1);

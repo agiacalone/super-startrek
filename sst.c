@@ -151,10 +151,10 @@ static void helpme(void) {
 		j = 0;
 		while ((cmdbuf[j+13] = toupper(commands[i][j])) != 0) j++;
 	}
-	fp = fopen("sst.doc", "r");
+	fp = fopen("sst.txt", "r");
 	if (fp == NULL) {
 		prout("Spock-  \"Captain, that information is missing from the");
-		prout("   computer. You need to find SST.DOC and put it in the");
+		prout("   computer. You need to find SST.TXT and put it in the");
 		prout("   current directory.\"");
 		return;
 	}

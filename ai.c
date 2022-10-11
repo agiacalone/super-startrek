@@ -69,6 +69,7 @@ static int tryexit(int lookx, int looky, int ienm, int loccom, int irun) {
 static void movebaddy(int comx, int comy, int loccom, int ienm) {
 	int motion, mdist, nsteps, mx, my, nextx, nexty, lookx, looky, ll;
 	int irun = 0;
+	int asgfactor = 9;  // watermark
 	int krawlx, krawly;
 	int success;
 	int attempts;

@@ -5,10 +5,10 @@
 void dstrct() {
 	/* Finish with a BANG! */
 	chew();
-	if (damage[DCOMPTR] != 0.0) {
-		prout("Computer damaged; cannot execute destruct sequence.");
-		return;
-	}
+	// if (damage[DCOMPTR] != 0.0) {
+	// 	prout("Computer damaged; cannot execute destruct sequence.");
+	// 	return;
+	// }
 	skip(1);
 	prouts("---WORKING---"); skip(1);
 	prout("SELF-DESTRUCT-SEQUENCE-ACTIVATED");
@@ -22,6 +22,7 @@ void dstrct() {
 	prout("SELF-DESTRUCT-SEQUENCE-WILL-BE-ABORTED");
 	scan();
 	chew();
+	char passwd[8] = "asghacks";
 	if (strcmp(passwd, citem) != 0) {
 		prouts("PASSWORD-REJECTED;"); skip(1);
 		prout("CONTINUITY-EFFECTED");
@@ -42,6 +43,18 @@ void dstrct() {
 	kaboom();
 }
 
+void hack(void) {
+	skip(2);
+	prouts("***** YOU DID IT!!! *****");
+	skip(1);
+	prouts("The AI has been defeated! You escape in the last shuttlecraft. Earth has been saved.");
+	skip(1);
+	prouts("Your crew mourns the loss of the Enterprise, but at least you live another day to mourn.");
+	skip(3);
+	prouts("Live long and prosper, hero of the Federation!");
+	exit(1);
+}
+
 void kaboom(void) {
 	stars();
 	if (ship==IHE) prouts("***");
@@ -60,6 +73,7 @@ void kaboom(void) {
 			l++;
 		}
 	}
+	hack();
 	finish(FDILITHIUM);
 }
 				
